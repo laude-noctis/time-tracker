@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongoose').Types;
-const Task = require('../../models/index');
+const Task = require('../../models');
 const router = require('express').Router();
 
 router.get('/', async (req, res) => {
@@ -25,6 +25,8 @@ router.get('/:taskId', async (req, res) => {
         res.json(oneTask)
     } catch (err) {
         console.error(err)
-        res.status(500),jaon(err)
+        res.status(500),json(err)
     }
-})
+});
+
+module.exports = router

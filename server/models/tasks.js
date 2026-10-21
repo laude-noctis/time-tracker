@@ -2,16 +2,16 @@ const { Schema, model  } = require('mongoose');
 
 const taskSchema = new Schema(
     {
-        taskTitle: {
+        title: {
             type: String,
             required: true
         },
-        createdAt: {
+        date: {
             type: Date,
             default: Date.now,
             // need to probably create a date modifier
         },
-        times: [
+        time: [
             {
                 start: {
                     type: String,
