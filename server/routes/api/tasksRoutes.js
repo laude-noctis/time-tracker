@@ -29,4 +29,30 @@ router.get('/:taskId', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+    console.log('creating a task')
+    try {
+        const createTask = await Task.insertOne(req.body)
+        res.json(createTask)
+    } catch (err) {
+        console.error(err)
+        res.status(500).json(err)
+    };
+});
+
+router.delete('/:taskId', async (req, res) => {
+    console.log('deleting a task')
+    try {
+        const deleteTask = await Task.deleteOne({ _id: req.params.taskId });
+        res.json(deleteTask)
+
+        if (!deleteTask) {
+            return res.status(),json({ message: 'task already gone'})
+        }
+    } catch (err) {
+        console.error(err)
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
