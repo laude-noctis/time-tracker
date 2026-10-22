@@ -53,6 +53,21 @@ router.delete('/:taskId', async (req, res) => {
         console.error(err)
         res.status(500).json(err)
     }
+});
+
+router.put('/:taskId', async (req, res) => {
+    console.log('adding a time')
+    try {
+        const addTime = await Task.findOneAndUpdate({ _id: req.params.taskId}, req.body)
+        res.json(addTime)
+
+        if (!addTime) {
+            res.status(404).json({ message: 'Task does not exist'})
+        }
+    } catch (err) {
+        console.error(err)
+        res.status(500).json(err)
+    }
 })
 
 module.exports = router
