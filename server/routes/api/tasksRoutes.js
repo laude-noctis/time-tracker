@@ -30,7 +30,7 @@ router.get('/:taskId', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    console.log('creating a task')
+    console.log('Creating a task')
     try {
         const createTask = await Task.insertOne(req.body)
         res.json(createTask)
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/:taskId', async (req, res) => {
-    console.log('deleting a task')
+    console.log('Deleting a task')
     try {
         const deleteTask = await Task.deleteOne({ _id: req.params.taskId });
         res.json(deleteTask)
@@ -56,7 +56,7 @@ router.delete('/:taskId', async (req, res) => {
 });
 
 router.put('/:taskId', async (req, res) => {
-    console.log('adding a time')
+    console.log('Adding a time')
     try {
         const addTime = await Task.findOneAndUpdate({ _id: req.params.taskId}, req.body)
         res.json(addTime)
