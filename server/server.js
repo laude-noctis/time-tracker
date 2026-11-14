@@ -8,7 +8,7 @@ const app = express()
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/api/hello', (req, res) => {
+app.get('/', (req, res) => {
     res.json({ message: 'Hello from the server!'})
 })
 
