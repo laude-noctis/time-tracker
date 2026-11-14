@@ -11,8 +11,8 @@ const taskSchema = new Schema(
             default: Date.now,
             // need to probably create a date modifier
         },
-        time: [
-            {
+        time: [{
+                _id: false,
                 start: {
                     type: String,
                     required: true
@@ -21,8 +21,7 @@ const taskSchema = new Schema(
                     type: String,
                     required: true
                 }
-            },
-        ],
+            }],
     }
 )
 
